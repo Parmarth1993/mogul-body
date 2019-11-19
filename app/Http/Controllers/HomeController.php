@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactEmail;
 
 use App\Quiz;
 use App\User;
@@ -76,6 +78,11 @@ class HomeController extends Controller
 
 
         $quiz->save();
+        $emails = ['brajeshjha108@gmail.com', 'parthibatman@gmail.com'];
+        
+        if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){
+            Mail::to($emails)->send(new ContactEmail($input));
+        }
 
         return redirect('/showquiz?id='.$quiz->id.'#sectionquiz')->with('success', 'Thank you for your registration. Below are your quiz details.');
 
