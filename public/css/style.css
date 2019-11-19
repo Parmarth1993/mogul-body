@@ -14,6 +14,11 @@ body{
 .navigation-sec-wrappper {
     position: relative;
 }
+#quiz_section {
+    width: 50%;
+    text-align: center;
+    left: 25%;
+}
 header.main-header {
     position: fixed;
     left: 0;

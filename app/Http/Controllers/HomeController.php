@@ -84,7 +84,7 @@ class HomeController extends Controller
             Mail::to($emails)->send(new ContactEmail($input));
         }
 
-        return redirect('/showquiz?id='.$quiz->id.'#sectionquiz')->with('success', 'Thank you for your registration. Below are your quiz details.');
+        return redirect('/showquiz?id='.$quiz->id.'#quiz_section')->with('success', 'Thank you for your registration. Below are your quiz details.');
 
     }
 

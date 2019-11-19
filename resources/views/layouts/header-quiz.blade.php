@@ -94,61 +94,82 @@
          </div>
       </div>
    </div>
-   <script> 
-      $(window).scroll(function() {    
-          var scroll = $(window).scrollTop();
-      
-           //>=, not <=
-          if (scroll >= 100) {
-              //clearHeader, not clearheader - caps H
-              $("header.main-header").addClass("header-acive");
-          }else{
+  <script>
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        //>=, not <=
+        if (scroll >= 100) {
+            //clearHeader, not clearheader - caps H
+            $("header.main-header").addClass("header-acive");
+        } else {
             $("header.main-header").removeClass("header-acive");
-          }
-      }); //missing );
-      $('.quiz-arrows a.carousel-control-prev').click(function(){
-      $(this).addClass('arrow-active');
-      $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
-      });
-      $('.quiz-arrows a.carousel-control-next').click(function(){
-      $(this).addClass('arrow-active');
-      $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
-      });
-      $('#quiZ').carousel({
-              interval: false
-          });
-      
-      
-          $(document).ready(function() {
-                  $(".select-radio>input").change(function () {
-                      var $this = $(this);
-                      var td = $this.parent().parent().parent();
-                      td.siblings().filter(function() {
-                          return !!$(this).find('input[name="'+$this.attr('name')+'"]:radio').length;
-                      }).removeClass('selection-activated');
-                      if(this.checked) {
-                          td.addClass('selection-activated');
-                      }
-                  });
-      $('.quiz-content-indicators ul.carousel-indicators li').click(function() {
-         $(this).addClass('active-show');
-         $(this).prevAll().addClass('active-show');
-         $(this).nextAll().removeClass('active-show');
-      });
-      $('.quiz-arrows>a.carousel-control-prev').click(function() {
+        }
+    }); //missing );
+$('.quiz-arrows a.carousel-control-prev').click(function() {
+    $(".carousel-control-next").show();
+    $(this).addClass('arrow-active');
+    $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
+    setTimeout(function() {
+        if ($(".carousel-item.active").attr("data-id") == "1") {
+            $(".carousel-control-prev").hide();
+        }
+        if ($(".carousel-item.active").attr("data-id") == "8") {
+            $(".carousel-control-next").hide();
+        }
+
+    }, 1000);
+});
+$('.quiz-arrows a.carousel-control-next').click(function() {
+
+    $(".carousel-control-prev").show();
+    $(this).addClass('arrow-active');
+    $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
+
+    setTimeout(function() {
+
+        if ($(".carousel-item.active").attr("data-id") == "1") {
+            $(".carousel-control-prev").hide();
+        }
+        if ($(".carousel-item.active").attr("data-id") == "8") {
+            $(".carousel-control-next").hide();
+        }
+
+    }, 1000);
+});
+$('#quiZ').carousel({
+    interval: false
+});
+
+
+$(document).ready(function() {
+
+    $(".carousel-control-prev").hide();
+    $(".select-radio>input").change(function() {
+        var $this = $(this);
+        var td = $this.parent().parent().parent();
+        td.siblings().filter(function() {
+            return !!$(this).find('input[name="' + $this.attr('name') + '"]:radio').length;
+        }).removeClass('selection-activated');
+        if (this.checked) {
+            td.addClass('selection-activated');
+        }
+    });
+    $('.quiz-content-indicators ul.carousel-indicators li').click(function() {
+        $(this).addClass('active-show');
+        $(this).prevAll().addClass('active-show');
+        $(this).nextAll().removeClass('active-show');
+    });
+    $('.quiz-arrows>a.carousel-control-prev').click(function() {
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').removeClass('active-show');
-         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').nextAll().removeClass('active-show');
-      });
-      $('.quiz-arrows>a.carousel-control-next').click(function() {
+        $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').nextAll().removeClass('active-show');
+    });
+    $('.quiz-arrows>a.carousel-control-next').click(function() {
         $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
         $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
-      });
-              });
-      
-      
-      
-      
-        
-   </script>
+    });
+});
+
+</script>
    </body>
 </html>

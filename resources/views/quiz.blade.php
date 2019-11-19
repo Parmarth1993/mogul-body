@@ -14,10 +14,10 @@
 
             <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
-                  {!! Form::open(['url' => '/home/saveQuiz', 'class' => 'sales-dashbard-form']) !!}
+                  {!! Form::open(['url' => '/home/saveQuiz', 'class' => 'quiz-form']) !!}
                             {{ csrf_field() }}
                      <div class="carousel-inner">
-                        <div class="carousel-item active">
+                        <div class="carousel-item active" data-id="1">
                            <div class="quiz-box">
                               <div class="gender-sec quiz-innEr">
                                  <h4>Gender</h4>
@@ -56,7 +56,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="2">
                            <div class="quiz-box">
                               <div class="age_section">
                                  <div class="Header-quiz">
@@ -109,7 +109,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="3">
                            <div class="quiz-box diagonsis_section-main">
                               <div class="diagonsis_section">
                                  <div class="Header-quiz">
@@ -178,7 +178,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="4">
                            <div class="quiz-box">
                               <div class="how-active-are">
                                  <div class="Header-quiz">
@@ -234,7 +234,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="5">
                            <div class="quiz-box what-described-you">
                               <div class="what-described-you-inner">
                                  <div class="Header-quiz">
@@ -290,7 +290,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="6">
                            <div class="quiz-box">
                               <div class="what-body_type">
                                  <div class="Header-quiz">
@@ -346,7 +346,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="7">
                            <div class="quiz-box doctor_refrence">
                               <div class="doctor_refrence-inner">
                                  <div class="Header-quiz">
@@ -377,7 +377,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" data-id="8">
                            <div class="quiz-box last-fill-form-main">
                               <div class="last-fill-form">
                                  <div class="Header-quiz">
@@ -387,25 +387,25 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="doctor_name fill-form">
                                           <label>First Name</label>
-                                          <input type="text" name="first_name" placeholder="Your first name">
+                                          <input type="text" name="first_name" placeholder="Your first name" required>
                                        </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="doctor_name fill-form">
                                           <label>Last Name</label>
-                                          <input type="text" name="last_name" placeholder="Your last name">
+                                          <input type="text" name="last_name" placeholder="Your last name" required>
                                        </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="doctor_name fill-form">
                                           <label>Email</label>
-                                          <input type="email" name="email" placeholder="Your email">
-                                          <input type="hidden" name="password" value="123456">
+                                          <input type="email" name="email" placeholder="Your email" required>
+                                          <input type="hidden" name="password" value="Admin123#">
                                        </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="submit-Form fill-form">
-                                          <input type="submit" value="Get Results">
+                                          <input type="submit" value="Get Results" required>
                                        </div>
                                     </div>
                                  </div>

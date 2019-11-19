@@ -11,6 +11,11 @@ body{
     padding: 13% 0 7% 0;
     position: relative;
 }
+#quiz_section {
+    width: 50%;
+    text-align: center;
+    left: 25%;
+}
 .navigation-sec-wrappper {
     position: relative;
 }
