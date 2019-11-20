@@ -20,7 +20,8 @@
             <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
                   {!! Form::open(['url' => route('patientSignupQuiz'), 'class' => 'quiz-form']) !!}
-                            {{ csrf_field() }}
+                     {{ csrf_field() }}
+                     <div class="validation-message text-center"><p>Please fill required fields.</p></div>
                      <div class="carousel-inner">
                         <div class="carousel-item active" data-id="1">
                            <div class="quiz-box">
@@ -38,7 +39,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="gender" value="male"> 
+                                             <input type="radio" name="gender" value="male" required> 
                                           </div>
                                        </div>
                                     </div>
@@ -53,7 +54,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="gender" value="female"> 
+                                             <input type="radio" name="gender" value="female" required> 
                                           </div>
                                        </div>
                                     </div>
@@ -70,42 +71,42 @@
                                  <div class="age-radio-wrappers">
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="teens">
+                                          <input type="radio" name="teens" class="age-radio" value="teens" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>Teens</h4>
                                        </div>
                                     </div>
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="20's">
+                                          <input type="radio" name="teens" class="age-radio" value="20's" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>20's</h4>
                                        </div>
                                     </div>
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="30's">
+                                          <input type="radio" name="teens" class="age-radio" value="30's" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>30's</h4>
                                        </div>
                                     </div>
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="40's">
+                                          <input type="radio" name="teens" class="age-radio" value="40's" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>40's</h4>
                                        </div>
                                     </div>
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="50's">
+                                          <input type="radio" name="teens" class="age-radio" value="50's" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>50's</h4>
                                        </div>
                                     </div>
                                     <div class="radio_wrapper-age">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="teens" value="60's">
+                                          <input type="radio" name="teens" class="age-radio" value="60's" required>
                                           <span class="cstm-cirle"></span>
                                           <h4>60's</h4>
                                        </div>
@@ -125,7 +126,7 @@
                                        <div class="dignosis-radio-wrapper">
                                           <div class="dignosis-radio-wrapper-inner">
                                              <div class="cstm-radio">
-                                                <input type="radio" name="diagnosis" value="My health is not where it needs to be and if I don’t improve my eating and begin an exercise routine, my life may be at risk.">
+                                                <input type="radio" name="diagnosis" value="My health is not where it needs to be and if I don’t improve my eating and begin an exercise routine, my life may be at risk." required>
                                                 <span class="cstm-cirle"></span>
                                                 <p>My health is not where it needs to be and if I don’t improve my eating and begin an exercise routine,
                                                    my life may be at risk.
@@ -134,7 +135,7 @@
                                           </div>
                                           <div class="dignosis-radio-wrapper-inner">
                                              <div class="cstm-radio">
-                                                <input type="radio" name="diagnosis" value="I need to lose weight loss because it is affecting my health, well being, and life goals" checked="checked">
+                                                <input type="radio" name="diagnosis" value="I need to lose weight loss because it is affecting my health, well being, and life goals" checked="checked" required>
                                                 <span class="cstm-cirle"></span>
                                                 <p>I need to lose weight loss because it is affecting my health, well being, and life goals</p>
                                              </div>
@@ -201,7 +202,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="active" value="lightly active">
+                                             <input type="radio" name="active" value="lightly active" required>
                                           </div>
                                        </div>
                                     </div>
@@ -216,7 +217,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="active" value="moderate active">
+                                             <input type="radio" name="active" value="moderate active" required>
                                           </div>
                                        </div>
                                     </div>
@@ -231,7 +232,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="active" value="very active">
+                                             <input type="radio" name="active" value="very active" required>
                                           </div>
                                        </div>
                                     </div>
@@ -257,7 +258,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="describe" value="I’ve been trying nutrition plans and workout routines before and it didn’t work for me">
+                                             <input type="radio" name="describe" value="I’ve been trying nutrition plans and workout routines before and it didn’t work for me" required>
                                           </div>
                                        </div>
                                     </div>
@@ -272,7 +273,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="describe" value="I’ll begin workout and nutrition plans but have a hard time staying consistent with them to get the best results">
+                                             <input type="radio" name="describe" value="I’ll begin workout and nutrition plans but have a hard time staying consistent with them to get the best results" required>
                                           </div>
                                        </div>
                                     </div>
@@ -287,7 +288,7 @@
                                              </div>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="describe" value="I have a hard time beginning anything new and sticking with it. I need someone to help me stick with it.">
+                                             <input type="radio" name="describe" value="I have a hard time beginning anything new and sticking with it. I need someone to help me stick with it." required>
                                           </div>
                                        </div>
                                     </div>
@@ -313,7 +314,7 @@
                                              <span>Endomorph</span>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="body_type" value="Endomorph">
+                                             <input type="radio" name="body_type" value="Endomorph" required>
                                           </div>
                                        </div>
                                     </div>
@@ -328,7 +329,7 @@
                                              <span>Ectomorph</span>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="body_type" value="Ectomorph">
+                                             <input type="radio" name="body_type" value="Ectomorph" required>
                                           </div>
                                        </div>
                                     </div>
@@ -343,7 +344,7 @@
                                              <span>Mesomorph</span>
                                           </div>
                                           <div class="select-radio">
-                                             <input type="radio" name="body_type" value="Mesomorph">
+                                             <input type="radio" name="body_type" value="Mesomorph" required>
                                           </div>
                                        </div>
                                     </div>
@@ -360,14 +361,14 @@
                                  <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="doctor" value="yes">
+                                          <input type="radio" name="doctor" value="yes" required>
                                           <span class="cstm-cirle"></span>
                                           <p>Yes</p>
                                        </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                        <div class="cstm-radio">
-                                          <input type="radio" name="doctor" value="no">
+                                          <input type="radio" name="doctor" value="no" required>
                                           <span class="cstm-cirle"></span>
                                           <p>No</p>
                                        </div>
@@ -410,7 +411,7 @@
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="submit-Form fill-form">
-                                          <input type="submit" value="Get Results" required>
+                                          <input type="submit" class="submit-form" value="Get Results" required>
                                        </div>
                                     </div>
                                  </div>

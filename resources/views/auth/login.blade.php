@@ -5,13 +5,13 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
             <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="text-center m-b-md custom-login">
-                    <h3>PLEASE LOGIN TO APP</h3>
-                    <p>This is the best app ever!</p>
+                    <h3>PLEASE LOGIN TO MOGUL BODY</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
                         <form action="{{ route('login') }}" method="POST" id="loginForm">
-                            <div class="form-group">
+                        	{{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="control-label" for="email">Email</label>
                                 <input type="text" placeholder="example@gmail.com" title="Please enter you email" required="" value="" name="email" id="email" class="form-control">
                                 @if ($errors->has('email'))
@@ -21,7 +21,7 @@
 								@endif
                                 <span class="help-block small">Your unique email to app</span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class="control-label" for="password">Password</label>
                                 <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                 @if ($errors->has('password'))
@@ -33,7 +33,7 @@
                             </div>
                             <div class="checkbox login-checkbox">
                                 <label>
-										<input type="checkbox" name="remember" id="customCheck" class="i-checks"> Remember me </label>
+									<input type="checkbox" name="remember" id="customCheck" class="i-checks"> Remember me </label>
                                 <p class="help-block small">(if this is a private computer)</p>
                             </div>
                             <button type="submit" class="btn btn-success btn-block loginbtn">Login</button>
@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <p>Copyright &copy; 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+                <p>Copyright &copy; 2018 <a href="http://mogulbody.smallbizplace.com">Mogul Body</a> All rights reserved.</p>
             </div>
         </div>
     </div>

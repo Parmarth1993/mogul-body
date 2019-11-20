@@ -20,7 +20,8 @@
             <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
                   {!! Form::open(['url' => route('physicianSignupQuiz'), 'class' => 'quiz-form']) !!}
-                            {{ csrf_field() }}
+                     {{ csrf_field() }}
+                     <div class="validation-message text-center"><p>Please fill required fields.</p></div>
                      <div class="carousel-inner">
                         <div class="carousel-item active" data-id="1">
                            <div class="quiz-box">
@@ -29,7 +30,7 @@
                                     <h2>Qualification</h2>
                                  </div>
                                  <div class="doctor_name">
-                                       <input type="text" name="qualification" placeholder="Qualification">
+                                    <input type="text" name="qualification" placeholder="Qualification" required>
                                  </div>
                               </div>
                            </div>
@@ -41,7 +42,7 @@
                                     <h2>How long have you been a Physician?</h2>
                                  </div>
                                  <div class="doctor_name">
-                                       <input type="text" name="service_time" placeholder="How long have you been a Physician?">
+                                    <input type="text" name="service_time" placeholder="How long have you been a Physician?" required>
                                  </div>
                               </div>
                            </div>
@@ -53,7 +54,7 @@
                                     <h2>What's the name of your business?</h2>
                                  </div>
                                  <div class="doctor_name">
-                                       <input type="text" name="business_name" placeholder="What's the name of your business?">
+                                    <input type="text" name="business_name" placeholder="What's the name of your business?" required>
                                  </div>
                               </div>
                            </div>
@@ -65,8 +66,8 @@
                                     <h2>Who are the typical patients you work with?</h2>
                                  </div>
                                  <div class="doctor_name">
-                                    <select name="typical_patients" class="form-control">
-                                       <option>Select</option>
+                                    <select name="typical_patients" class="form-control" required>
+                                       <option value="">Select</option>
                                        <option value="Test">Test</option>
                                     </select>
                                  </div>
@@ -107,7 +108,7 @@
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                        <div class="submit-Form fill-form">
-                                          <input type="submit" value="Get Results" required>
+                                          <input type="submit" class="submit-form" value="Get Results" required>
                                        </div>
                                     </div>
                                  </div>

@@ -2024,3 +2024,16 @@ color: #232A34;
     width: 50%;
     margin: 0 auto;
 }
+.validation-message.text-center {
+  display: none;
+  color: #F70222;
+}
+.radio_wrapper-age .error, .cstm-radio.error, div.doctor_name label.error {
+    display: none !important;
+}
+input.error, select.form-control.error {
+    border-bottom: 1px solid red !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}

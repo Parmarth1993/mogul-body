@@ -14,6 +14,7 @@
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
+      <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
       <script src="{{ asset('js/jquery.min.js') }}"></script>
       <script src="{{ asset('js/popper.min.js') }}"></script>
       <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -94,82 +95,125 @@
          </div>
       </div>
    </div>
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
   <script>
-    $(window).scroll(function() {
-        var scroll = $(window).scrollTop();
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
 
-        //>=, not <=
-        if (scroll >= 100) {
-            //clearHeader, not clearheader - caps H
-            $("header.main-header").addClass("header-acive");
-        } else {
-            $("header.main-header").removeClass("header-acive");
-        }
+      //>=, not <=
+      if (scroll >= 100) {
+        //clearHeader, not clearheader - caps H
+        $("header.main-header").addClass("header-acive");
+      } else {
+        $("header.main-header").removeClass("header-acive");
+      }
     }); //missing );
-$('.quiz-arrows a.carousel-control-prev').click(function() {
-    $(".carousel-control-next").show();
-    $(this).addClass('arrow-active');
-    $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
-    setTimeout(function() {
+    $('.quiz-arrows a.carousel-control-prev').click(function () {
+      $(".carousel-control-next").show();
+      $(this).addClass('arrow-active');
+      $('.quiz-arrows a.carousel-control-next').removeClass('arrow-active');
+      setTimeout(function () {
         if ($(".carousel-item.active").attr("data-id") == "1") {
-            $(".carousel-control-prev").hide();
+          $(".carousel-control-prev").hide();
         }
         if ($(".carousel-item.active").attr("data-id") == "8") {
-            $(".carousel-control-next").hide();
+          $(".carousel-control-next").hide();
         }
+      }, 1000);
+    });
+    $('.quiz-arrows a.carousel-control-next').click(function () {
+      if(!$(".quiz-form").valid()) {
+        $('label.error').each(function() {
+          $(this).remove();
+        });
+        // $('input.age-radio').each(function() {
+        //   $(this).removeClass('error');
+        // });
+        // $('div.doctor_name input').each(function() {
+        //   $(this).removeClass('error');
+        // });
+        // $('div.doctor_name.fill-form input').each(function() {
+        //   $(this).removeClass('error');
+        // });
+        // $('.validation-message').show();
+        // setTimeout(function () {
+        //   $('.validation-message').slideUp('slow');
+        // },1500);
+        return false;
+      }
+      $(".carousel-control-prev").show();
+      $(this).addClass('arrow-active');
+      $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
 
-    }, 1000);
-});
-$('.quiz-arrows a.carousel-control-next').click(function() {
-
-    $(".carousel-control-prev").show();
-    $(this).addClass('arrow-active');
-    $('.quiz-arrows a.carousel-control-prev').removeClass('arrow-active');
-
-    setTimeout(function() {
-
+      setTimeout(function () {
         if ($(".carousel-item.active").attr("data-id") == "1") {
-            $(".carousel-control-prev").hide();
+          $(".carousel-control-prev").hide();
         }
         if ($(".carousel-item.active").attr("data-id") == "8") {
-            $(".carousel-control-next").hide();
+          $(".carousel-control-next").hide();
         }
+      }, 1000);
 
-    }, 1000);
-});
-$('#quiZ').carousel({
-    interval: false
-});
+      $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
+      $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
+
+    });
+    // $('.submit-form').click(function () {
+    //   if(!$(".quiz-form").valid()) {
+    //     $('label.error').each(function() {
+    //       $(this).remove();
+    //     });
+    //     $('input.age-radio').each(function() {
+    //       $(this).removeClass('error');
+    //     });
+    //     $('div.doctor_name input').each(function() {
+    //       $(this).removeClass('error');
+    //     });
+    //     $('div.doctor_name.fill-form input').each(function() {
+    //       $(this).removeClass('error');
+    //     });
+    //     $('.validation-message').show();
+    //     setTimeout(function () {
+    //       $('.validation-message').slideUp('slow');
+    //     },1500);
+    //     return false;
+    //   }
+
+    // });
+    $('#quiZ').carousel({
+      interval: false
+    });
 
 
-$(document).ready(function() {
+    $(document).ready(function () {
 
-    $(".carousel-control-prev").hide();
-    $(".select-radio>input").change(function() {
+      $(".carousel-control-prev").hide();
+      $(".select-radio>input").change(function () {
         var $this = $(this);
         var td = $this.parent().parent().parent();
-        td.siblings().filter(function() {
-            return !!$(this).find('input[name="' + $this.attr('name') + '"]:radio').length;
+        td.siblings().filter(function () {
+          return !!$(this).find('input[name="' + $this.attr('name') + '"]:radio').length;
         }).removeClass('selection-activated');
         if (this.checked) {
-            td.addClass('selection-activated');
+          td.addClass('selection-activated');
         }
-    });
-    $('.quiz-content-indicators ul.carousel-indicators li').click(function() {
+      });
+      $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
         $(this).addClass('active-show');
         $(this).prevAll().addClass('active-show');
         $(this).nextAll().removeClass('active-show');
-    });
-    $('.quiz-arrows>a.carousel-control-prev').click(function() {
+      });
+      $('.quiz-arrows>a.carousel-control-prev').click(function () {
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').removeClass('active-show');
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').nextAll().removeClass('active-show');
+      });
+      // $('.quiz-arrows>a.carousel-control-next').click(function () {
+      //   console.log('click two');
+      //   $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
+      //   $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
+      // });
     });
-    $('.quiz-arrows>a.carousel-control-next').click(function() {
-        $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
-        $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
-    });
-});
-
-</script>
+    </script>
    </body>
 </html>

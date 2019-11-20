@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | Mogul Body</title>
+    <title>{{ $title }} | Mogul Body</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -71,7 +71,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="index.html" class="btn btn-primary">Back to Dashboard</a>
+                    <a href="/" class="btn btn-primary">Back to Mogul Body</a>
                 </div>
             </div>
         </div>

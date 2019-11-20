@@ -39,6 +39,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.login');
+        $title = 'Login';
+        return view('auth.login', compact('title'));
     }
 }
