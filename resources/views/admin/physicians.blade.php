@@ -14,23 +14,23 @@
                                 <th>S. No</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Gender</th>
-                                <th>Age</th>
-                                <th>Diagnosis</th>
-                                <th>Active</th>
-                                <th>Body Type</th>
+                                <th>Phone</th>
+                                <th>Qualification</th>
+                                <th>Service Time</th>
+                                <th>Business</th>
+                                <th>Typical Patients</th>
                                 <th>Setting</th>
                             </tr>
-                        @foreach($quizList as $patient)
+                        @foreach($patientList as $patient)
                             <tr>
                                 <td>{{ $patient->name }}</td>
                                 <td>{{ $patient->name }}</td>
                                 <td>{{ $patient->email }}</td>
-                                <td>{{ $patient->gender }}</td>
-                                <td>{{ $patient->teens }}</td>
-                                <td>{{ $patient->diagnosis }}</td>
-                                <td>{{ $patient->active }}</td>
-                                <td>{{ $patient->body_type }}</td>
+                                <td>{{ $patient->phone }}</td>
+                                <td>{{ $patient->qualification }}</td>
+                                <td>{{ $patient->service_time }}</td>
+                                <td>{{ $patient->business_name }}</td>
+                                <td>{{ $patient->typical_patients }}</td>
                                 <td>
                                     <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>

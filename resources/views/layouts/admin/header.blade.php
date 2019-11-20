@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Product List | jeweler - Material Admin Template</title>
+    <title>{{ $title }} | Admin - Mogul Body</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -69,7 +69,7 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="/images/logo.png" alt="" /></a>
+                <a href="{{ route('adminDashboard') }}"><img class="main-logo" src="/images/logo.png" alt="" /></a>
                 <strong><img src="/images/logo.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -85,15 +85,15 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">Patients</span></a>
+                            <a class="has-arrow" href="{{ route('getPatients') }}" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">Patients</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="mailbox.html"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                                <li><a title="Inbox" href="{{ route('getPatients') }}"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">Physicians</span></a>
+                            <a class="has-arrow" href="{{ route('getPhysicians') }}" aria-expanded="false"><i class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">Physicians</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="google-map.html"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                                <li><a title="Google Map" href="{{ route('getPhysicians') }}"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
                             </ul>
                         </li>
                         <!-- <li>
@@ -168,7 +168,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                        <a href="{{ route('adminDashboard') }}"><img class="main-logo" src="/images/logo.png" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -369,7 +369,7 @@
                                     <ul class="mobile-menu-nav">
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
-                                                <li><a href="index.html">Dashboard v.1</a></li>
+                                                <li><a href="{{ route('adminDashboard') }}">Dashboard v.1</a></li>
                                                 <li><a href="index-1.html">Dashboard v.2</a></li>
                                                 <li><a href="index-3.html">Dashboard v.3</a></li>
                                                 <li><a href="product-list.html">Product List</a></li>
@@ -508,21 +508,21 @@
                             <div class="breadcome-list single-page-breadcome">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="breadcome-heading">
+                                        <!-- <div class="breadcome-heading">
                                             <form role="search" class="">
                                                 <input type="text" placeholder="Search..." class="form-control">
                                                 <a href=""><i class="fa fa-search"></i></a>
                                             </form>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <ul class="breadcome-menu">
-                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            <li><a href="{{ route('adminDashboard') }}">Admin</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">Product List</span>
+                                            <li><span class="bread-blod">{{ $title}}</span>
                                             </li>
                                         </ul>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>

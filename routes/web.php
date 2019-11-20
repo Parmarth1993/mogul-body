@@ -30,4 +30,6 @@ Auth::routes();
 //admin routes
 Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
 	Route::get('/dashboard', 'Admin\DashboardController@index')->name('adminDashboard');
+	Route::get('/patients', 'Admin\DashboardController@getPatients')->name('getPatients');
+	Route::get('/physicians', 'Admin\DashboardController@getPhysicians')->name('getPhysicians');
 });

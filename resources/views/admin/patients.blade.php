@@ -21,7 +21,7 @@
                                 <th>Body Type</th>
                                 <th>Setting</th>
                             </tr>
-                        @foreach($quizList as $patient)
+                        @foreach($patientList as $patient)
                             <tr>
                                 <td>{{ $patient->name }}</td>
                                 <td>{{ $patient->name }}</td>

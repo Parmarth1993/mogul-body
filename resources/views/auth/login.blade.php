@@ -5,7 +5,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
             <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="text-center m-b-md custom-login">
-                    <h3>PLEASE LOGIN TO MOGUL BODY</h3>
+                    <h3>LOGIN TO MOGUL BODY</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <p>Copyright &copy; 2018 <a href="http://mogulbody.smallbizplace.com">Mogul Body</a> All rights reserved.</p>
+                <p>2019 <a href="http://mogulbody.smallbizplace.com">MOGULBODY</a> LLC Privacy Policy Terms and Conditions Contact Us</p>
             </div>
         </div>
     </div>
