@@ -119,7 +119,7 @@
                   <div class="ph-pateient-cntnt">
                      <h2>Physicians</h2>
                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                     <a class="btn-design" href="#">Get a membership</a>
+                     <a class="btn-design" href="{{ route('physicianSignup') }}">Get a membership</a>
                   </div>
                </div>
                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 align-self-center">
@@ -138,7 +138,7 @@
                   <div class="ph-pateient-cntnt">
                      <h2>Patients</h2>
                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                     <a class="btn-design" href="/quiz">Sign Up</a>
+                     <a class="btn-design" href="{{ route('patientSignup') }}">Sign Up</a>
                   </div>
                </div>
             </div>

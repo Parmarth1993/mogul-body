@@ -23,7 +23,7 @@
          <header class="main-header">
             <div class="container">
                <nav class="navbar navbar-expand-md">
-                  <a class="navbar-brand" href="/"><img src="images/red-logo.png"></a>
+                  <a class="navbar-brand" href="/"><img src="/images/red-logo.png"></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                   <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                   </button>
@@ -57,7 +57,7 @@
                <div class="row">
                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
                      <div class="footer-logo">
-                        <img src="images/fotter-logo.png">
+                        <img src="/images/fotter-logo.png">
                      </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-4 col-sm-12">

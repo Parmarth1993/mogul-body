@@ -14,7 +14,7 @@ body{
 .navigation-sec-wrappper {
     position: relative;
 }
-#quiz_section {
+#quiz_section, #message {
     width: 50%;
     text-align: center;
     left: 25%;
@@ -2019,4 +2019,8 @@ color: #232A34;
   .banner-btN a {
     padding: 17px 10px;
 }
+}
+.inner-quiz-sec .alert.alert-danger {
+    width: 50%;
+    margin: 0 auto;
 }

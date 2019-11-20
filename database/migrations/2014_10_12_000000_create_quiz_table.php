@@ -26,6 +26,15 @@ class CreateQuizTable extends Migration
             $table->string('body_type')->nullable();
             $table->string('doctor')->nullable();
             $table->string('doctor_name')->nullable();
+
+            $table->string('qualification')->nullable();
+            $table->string('service_time')->nullable();
+            $table->string('business_name')->nullable();
+            $table->string('typical_patients')->nullable();
+
+            $table->enum('type', ['patient', 'physician']);
+
+
             $table->timestamps();
         });
     }

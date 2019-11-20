@@ -18,8 +18,12 @@
 // });
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/quiz', 'HomeController@quiz')->name('Quiz');
-Route::get('/showquiz', 'HomeController@showquiz')->name('Quiz');
-Route::post('/home/saveQuiz', 'HomeController@saveQuiz');
+Route::get('/signup/patient', 'HomeController@patientSignup')->name('patientSignup');
+Route::get('/signup/physician', 'HomeController@physicianSignup')->name('physicianSignup');
+
+Route::post('/signup/patient', 'HomeController@patientSignupQuiz')->name('patientSignupQuiz');
+Route::post('/signup/physician', 'HomeController@physicianSignupQuiz')->name('physicianSignupQuiz');
+
+Route::get('/thank-you', 'HomeController@quizResults')->name('Quiz');
 
 Auth::routes();

@@ -1,4 +1,4 @@
-@extends('layouts.header-quiz')
+@extends('layouts.header-signup')
 @section('content')
 <section class="quiz_page-wrapper">
    <section class="quiz_secion">
@@ -11,10 +11,15 @@
                   <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
                </div>
             </div>
-
+            @if(session()->get('error'))
+               <div class="alert alert-danger alert-dismissible">
+                   <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                   <strong>Error!</strong> {{ session()->get('error') }}  
+               </div>
+            @endif
             <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
-                  {!! Form::open(['url' => '/home/saveQuiz', 'class' => 'quiz-form']) !!}
+                  {!! Form::open(['url' => route('patientSignupQuiz'), 'class' => 'quiz-form']) !!}
                             {{ csrf_field() }}
                      <div class="carousel-inner">
                         <div class="carousel-item active" data-id="1">
@@ -26,7 +31,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/male.png">
+                                                <img src="/images/male.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span><i class="fas fa-mars"></i> Male</span>
@@ -41,7 +46,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/female.png">
+                                                <img src="/images/female.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span><i class="fas fa-venus"></i> Female</span>
@@ -189,7 +194,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/lightly-active.png">
+                                                <img src="/images/lightly-active.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>Lightly Active</span>
@@ -204,7 +209,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/moderate-active.png">
+                                                <img src="/images/moderate-active.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>Moderately Active</span>
@@ -219,7 +224,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/very-active.png">
+                                                <img src="/images/very-active.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>Very Active</span>
@@ -245,7 +250,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/nutriation.png">
+                                                <img src="/images/nutriation.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>I’ve been trying nutrition plans and workout routines before and it didn’t work for me</span>
@@ -260,7 +265,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/gym.png">
+                                                <img src="/images/gym.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>I’ll begin workout and nutrition plans but have a hard time staying consistent with them to get the best results</span>
@@ -275,7 +280,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/gym-guide.png">
+                                                <img src="/images/gym-guide.png">
                                              </div>
                                              <div class="Sel-cntnt-block">
                                                 <span>I have a hard time beginning anything new and sticking with it. I need someone to help me stick with it. </span>
@@ -301,7 +306,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/endomorph.png">
+                                                <img src="/images/endomorph.png">
                                              </div>
                                           </div>
                                           <div class="Sel-cntnt-block">
@@ -316,7 +321,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/Ectomorph.png">
+                                                <img src="/images/Ectomorph.png">
                                              </div>
                                           </div>
                                           <div class="Sel-cntnt-block">
@@ -331,7 +336,7 @@
                                        <div class="Selection-wrapper">
                                           <div class="Sel-box">
                                              <div class="Sel-image">
-                                                <img src="images/Mesomorph.png">
+                                                <img src="/images/Mesomorph.png">
                                              </div>
                                           </div>
                                           <div class="Sel-cntnt-block">
