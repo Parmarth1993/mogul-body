@@ -74,7 +74,7 @@
       <div class="container">
          <div class="queue-section-wrapper-inner">
             <h2>Quiz</h2>
-            @if($quiz_details->type == 'quiz_details')
+            @if($quiz_details->type == 'patient')
               <div class="Queue-accordians-sec">
                  <div id="accordion">
                     <div class="card">

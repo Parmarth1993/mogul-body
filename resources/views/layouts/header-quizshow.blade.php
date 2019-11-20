@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{{ config('app.name', 'Mogul Body') }}</title>
       <!-- Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+      <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> -->
       <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
       <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
       <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
@@ -34,17 +34,17 @@
         <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">PHYSICIANS</a>
+        <a class="nav-link" href="{{ route('physicianSignup') }}">PHYSICIANS</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">CONTACTS US</a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>  
+         <a class="nav-link" href="/login">Login</a>
+      </li>
       <li class="nav-item bg-reD">
-        <a class="nav-link" href="#">Join</a>
-      </li>    
+         <a class="nav-link" href="/register">Join</a>
+      </li>  
     </ul>
   </div>  
 </nav>

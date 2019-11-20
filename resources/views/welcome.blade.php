@@ -8,7 +8,7 @@
          <p>Mogul Body diet system is mixing fitness, nutrition and business with the fast-paced lifestyle common among entrepreneurs. 
             This company will transform your body and mind to live and run the business of your dreams.
          </p>
-         <div class="banner-btN"><span><i class="fas fa-clipboard"></i></span><a href="#">TAKE THE PATIENT HEALTH QUIZ</a></div>
+         <div class="banner-btN"><span><i class="fas fa-clipboard"></i></span><a href="{{ route('patientSignupQuiz') }}">TAKE THE PATIENT HEALTH QUIZ</a></div>
       </div>
    </div>
 </div>
