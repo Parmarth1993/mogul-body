@@ -27,3 +27,7 @@ Route::post('/signup/physician', 'HomeController@physicianSignupQuiz')->name('ph
 Route::get('/thank-you', 'HomeController@quizResults')->name('Quiz');
 
 Auth::routes();
+//admin routes
+Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
+	Route::get('/dashboard', 'Admin\DashboardController@index')->name('adminDashboard');
+});

@@ -1,78 +1,53 @@
-
-<!-- banner -->
-<section data-spy="scroll"  class="inner_banner bg-cover banner-overlay-black-bg" style="background:url('{{ asset('images/home/inner-page-banner.jpg')}}") center center no-repeat;">
-    <div class="container">
-        <div class="row align-content-center">
-            <div class="col-md-12 col-lg-10 offset-lg-1 align-self-center">
-                <div class="slider-info text-left pt-md-5 mt-md-5 pt-lg-5 mt-lg-5 pt-4">
-                    <h2>Login</h2>                  
+@extends('layouts.auth.header')
+@section('content')
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="text-center m-b-md custom-login">
+                    <h3>PLEASE LOGIN TO APP</h3>
+                    <p>This is the best app ever!</p>
                 </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</section>
-<!-- //banner -->  
-
-<div class="request-quote-section py-md-5 py-4" style="background: #f4f4f4;">
-    <div class="container">
-		<div class="row">
-            <div class="col-md-6 col-lg-6 pr-md-5 offset-md-3 offset-lg-3">
-				<div class="panel-body margin-left login-box">
-					<form class="form-horizontal" method="POST" action="{{ route('login') }}">
-						{{ csrf_field() }}
-
-						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-							<label for="email" class="col-md-12 control-label">E-Mail Address</label>
-
-							<div class="col-md-12">
-								<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-								@if ($errors->has('email'))
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <form action="{{ route('login') }}" method="POST" id="loginForm">
+                            <div class="form-group">
+                                <label class="control-label" for="email">Email</label>
+                                <input type="text" placeholder="example@gmail.com" title="Please enter you email" required="" value="" name="email" id="email" class="form-control">
+                                @if ($errors->has('email'))
 									<span class="help-block">
 										<strong>{{ $errors->first('email') }}</strong>
 									</span>
 								@endif
-							</div>
-						</div>
-
-						<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-							<label for="password" class="col-md-12 control-label">Password</label>
-
-							<div class="col-md-12">
-								<input id="password" type="password" class="form-control" name="password" required>
-
-								@if ($errors->has('password'))
+                                <span class="help-block small">Your unique email to app</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                @if ($errors->has('password'))
 									<span class="help-block">
 										<strong>{{ $errors->first('password') }}</strong>
 									</span>
 								@endif
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-12">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="customCheck" name="remember" {{ old('remember') ? 'checked' : '' }}>
-									<label class="custom-control-label" for="customCheck">Remember Me</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary">
-									Login
-								</button>
-
-								<a class="btn btn-link" href="{{ route('password.request') }}">
-									Forgot Your Password?
-								</a>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                                <span class="help-block small">Your strong password</span>
+                            </div>
+                            <div class="checkbox login-checkbox">
+                                <label>
+										<input type="checkbox" name="remember" id="customCheck" class="i-checks"> Remember me </label>
+                                <p class="help-block small">(if this is a private computer)</p>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block loginbtn">Login</button>
+                            <a class="btn btn-default btn-block" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <p>Copyright &copy; 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+@endsection
