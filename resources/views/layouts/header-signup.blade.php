@@ -14,7 +14,6 @@
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
-      <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
       <script src="{{ asset('js/jquery.min.js') }}"></script>
       <script src="{{ asset('js/popper.min.js') }}"></script>
       <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -95,8 +94,8 @@
          </div>
       </div>
    </div>
-   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+   <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
   <script>
     $(window).scroll(function () {
       var scroll = $(window).scrollTop();
@@ -127,19 +126,6 @@
         $('label.error').each(function() {
           $(this).remove();
         });
-        // $('input.age-radio').each(function() {
-        //   $(this).removeClass('error');
-        // });
-        // $('div.doctor_name input').each(function() {
-        //   $(this).removeClass('error');
-        // });
-        // $('div.doctor_name.fill-form input').each(function() {
-        //   $(this).removeClass('error');
-        // });
-        // $('.validation-message').show();
-        // setTimeout(function () {
-        //   $('.validation-message').slideUp('slow');
-        // },1500);
         return false;
       }
       $(".carousel-control-prev").show();
