@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactEmail extends Mailable
+class AdminEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $firstname;
@@ -68,6 +68,6 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.contact');
+        return $this->view('email.admin');
     }
 }

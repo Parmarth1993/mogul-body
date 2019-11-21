@@ -45,7 +45,7 @@
 <body style="margin:0px;background:#f1f1f1;padding:40px 0  40px 0;">
 	<div class="container">
 		<div class="header-section" style="border-top:5px solid #7aaba2;text-align:center;background:#302e2f;width:74%;margin:0px auto;">
-			<img alt="" src="images/red-logo.png" style="width:100px;" />			
+			<img alt="" src="https://mogulbody.smallbizplace.com/images/logo.png" style="width:100px;" />			
 		</div>
 		 
 		<div class="body-section" style="width:70%;	margin:0px auto;box-shadow:1px 1px 10px rgba(0, 0, 0, 0.1);background:#fff;padding:20px;">

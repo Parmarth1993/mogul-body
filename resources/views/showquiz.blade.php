@@ -64,12 +64,10 @@
          </div>
       </div>
    </section>
-   @if(session()->get('success'))
    <div class="alert alert-success" id="message">
-      {{ session()->get('success') }}  
+      Thank you for your registration. Below are your quiz details.
    </div>
    <br />
-   @endif
    <section class="queue-section-wrapper" id="sectionquiz">
       <div class="container">
          <div class="queue-section-wrapper-inner">

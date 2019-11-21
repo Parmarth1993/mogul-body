@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
-
+use App\Mail\AdminEmail;
 use App\Quiz;
 use App\User;
 
@@ -57,7 +57,10 @@ class HomeController extends Controller
         //check for duplicate email
         $checkEmail = User::Where('email', $input['email'])->get()->first(); 
         if(!empty($checkEmail)) {
-            return redirect('/signup/patient')->with('error', 'Email already exists, please try with different email');
+            return response()->json([
+                'message' => 'Email already exists, please try with different email',
+                'success' => false
+            ]);
         }
 
         $user = new User([
@@ -75,7 +78,7 @@ class HomeController extends Controller
 
              $input['diagonsis_condition'] = implode(',', $input['diagonsis_condition']);
         }
-        
+        $input['type'] = 'patient';
         $quiz = new Quiz([
             'user_id' => $user->id,
             'gender' => $input['gender'],
@@ -92,13 +95,20 @@ class HomeController extends Controller
 
 
         $quiz->save();
-        $emails = ['brajeshjha108@gmail.com', $input['email']];
         
         if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){
-            Mail::to($emails)->send(new ContactEmail($input));
+            $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+            $input['login'] = $protocol.$_SERVER['HTTP_HOST'] . '/login';
+            Mail::to($input['email'])->send(new ContactEmail($input));
+            //send email to admin
+            Mail::to(['brajeshjha108@gmail.com'])->send(new AdminEmail($input));
         }
-
-        return redirect('/thank-you?id='.$quiz->id.'#message')->with('success', 'Thank you for your registration. Below are your quiz details.');
+        return response()->json([
+            'message' => 'Thank you for your registration. Below are your quiz details.',
+            'redirect' => '/thank-you?id='.$quiz->id.'#message',
+            'success' => true
+        ]);
+        // return redirect('/thank-you?id='.$quiz->id.'#message')->with('success', 'Thank you for your registration. Below are your quiz details.');
 
     }
 
@@ -116,7 +126,10 @@ class HomeController extends Controller
         //check for duplicate email
         $checkEmail = User::Where('email', $input['email'])->get()->first(); 
         if(!empty($checkEmail)) {
-            return redirect('/signup/physician')->with('error', 'Email already exists, please try with different email');
+            return response()->json([
+                'message' => 'Email already exists, please try with different email',
+                'success' => false
+            ]);
         }
         $user = new User([
             'name' => $input['first_name'],
@@ -129,6 +142,7 @@ class HomeController extends Controller
         ]);
 
         $user->save();        
+        $input['type'] = 'physician';
         $quiz = new Quiz([
             'user_id' => $user->id,
             'qualification' => $input['qualification'],
@@ -139,13 +153,21 @@ class HomeController extends Controller
         ]);
 
         $quiz->save();
-        $emails = ['brajeshjha108@gmail.com', $input['email']];
         
         if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){
-            Mail::to($emails)->send(new ContactEmail($input));
+            $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+            $input['login'] = $protocol.$_SERVER['HTTP_HOST'] . '/login';
+            Mail::to($input['email'])->send(new ContactEmail($input));
+            //send email to admin
+            Mail::to(['brajeshjha108@gmail.com'])->send(new AdminEmail($input));
         }
 
-        return redirect('/thank-you?id='.$quiz->id.'#message')->with('success', 'Thank you for your registration. Below are your quiz details.');
+        return response()->json([
+            'message' => 'Thank you for your registration. Below are your quiz details.',
+            'redirect' => '/thank-you?id='.$quiz->id.'#message',
+            'success' => true
+        ]);
+        // return redirect('/thank-you?id='.$quiz->id.'#message')->with('success', 'Thank you for your registration. Below are your quiz details.');
 
     }
 

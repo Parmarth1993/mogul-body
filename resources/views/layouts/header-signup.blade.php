@@ -210,11 +210,33 @@
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').removeClass('active-show');
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').nextAll().removeClass('active-show');
       });
-      // $('.quiz-arrows>a.carousel-control-next').click(function () {
-      //   console.log('click two');
-      //   $('.quiz-content-indicators ul.carousel-indicators li.active').addClass('active-show');
-      //   $('.quiz-content-indicators ul.carousel-indicators li.active').prevAll().addClass('active-show');
-      // });
+      
+
+      //submit form
+      $( '.quiz-form' ).on( 'submit', function(e) {
+          e.preventDefault();
+
+          var name = $(this).find('input[name=name]').val();
+          var postUrl = '{{ route("physicianSignupQuiz") }}';
+          if($('#quizType').val() === 'patient') {
+            postUrl = '{{ route("patientSignupQuiz") }}';
+          }
+          $.ajax({
+              type: "POST",
+              url: postUrl,
+              dataType:"json",
+              data: $( '.quiz-form' ).serialize(),
+              success: function(response) {
+                if(response && response.success) {
+                  window.location.href = response.redirect;
+                } else {
+                  $('#errorMessage').show();
+                  $('#message').html(response.message);
+                }
+              }
+          })
+
+      });
     });
     </script>
    </body>

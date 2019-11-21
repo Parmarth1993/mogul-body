@@ -2037,3 +2037,6 @@ input.error, select.form-control.error {
     border-left: none !important;
     border-right: none !important;
 }
+#errorMessage {
+  display: none;
+}

@@ -2,18 +2,18 @@
 
 <div>
     Hi, <br />
-    {{ $firstname }} {{ $lastname }}<br />
-    Welcome to <b>Mogul Body</b>, your account has been created succesfully. You can find your login details below, click the login button to access you account.
-    <br />
-
+    Admin <br />
+    A new <b> {{ $type }} </b> has been registered on the website, below are the details: <br />
+    First Name : <b>{{ $firstname }}</b><br />
+    Last Name : <b>{{ $lastname }}</b><br />
     Email : <b>{{ $email }}</b><br />
-    Password : <b>{{ $password }}</b><br />
-    <a href="{{ $login }}" target="_blank">Click to Login</a>
-    <br />
+    @if($type != 'patient')
+    	Phone : <b>{{ $phone }}</b><br />
+    @endif
     <b>Below are the details for the quiz:</b> <br />
     @if($type == 'patient')
     	Gender : <b>{{ $gender }}</b><br />
-    	Age : <b>{{ $teens }}</b><br />
+    	Age : {<b>{ $teens }}</b><br />
     	Diagnosis : <b>{{ $diagnosis }}</b><br />
     	Diagnosis Conditions : <b>{{ $diagonsis_condition }}</b><br />
     	How active are you? : <b>{{ $active }}</b><br />
@@ -24,7 +24,6 @@
     		Doctor Name : <b>{{ $doctor_name }}</b><br />
     	@endif
     @else
-    	Phone : <b>{{ $phone }}</b><br />
     	Qualification : <b>{{ $qualification }}</b><br />
     	How long have you been a Physician? : <b>{{ $service_time }}</b><br />
     	What's the name of your business? : <b>{{ $business_name }}</b><br />

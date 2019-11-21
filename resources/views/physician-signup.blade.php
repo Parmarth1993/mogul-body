@@ -11,16 +11,15 @@
                   <a class="carousel-control-next arrow-active" href="#quiZ" data-slide="next"><span class="carousel-control-next-icon"><i class="fas fa-arrow-right"></i></span></a>
                </div>
             </div>
-            @if(session()->get('error'))
-               <div class="alert alert-danger alert-dismissible">
-                   <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                   <strong>Error!</strong> {{ session()->get('error') }}  
-               </div>
-            @endif
+            <div class="alert alert-danger alert-dismissible" id="errorMessage">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                <strong>Error!</strong> <span id="message"></span>
+            </div>
             <div class="quiz-content-wrappper">
                <div id="quiZ" class="carousel slide">
                   {!! Form::open(['url' => route('physicianSignupQuiz'), 'class' => 'quiz-form']) !!}
                      {{ csrf_field() }}
+                     <input type="hidden" name="quizType" id="quizType" value="physician">
                      <div class="validation-message text-center"><p>Please fill required fields.</p></div>
                      <div class="carousel-inner">
                         <div class="carousel-item active" data-id="1">
