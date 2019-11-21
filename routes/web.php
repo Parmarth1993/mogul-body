@@ -32,4 +32,7 @@ Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
 	Route::get('/dashboard', 'Admin\DashboardController@index')->name('adminDashboard');
 	Route::get('/patients', 'Admin\DashboardController@getPatients')->name('getPatients');
 	Route::get('/physicians', 'Admin\DashboardController@getPhysicians')->name('getPhysicians');
+	Route::get('/profile', 'Admin\DashboardController@profile')->name('profile');
+	Route::post('/update-profile', 'Admin\DashboardController@updateprofile')->name('updateprofile');
+	Route::post('/update-password', 'Admin\DashboardController@updatepassword')->name('updatepassword');
 });

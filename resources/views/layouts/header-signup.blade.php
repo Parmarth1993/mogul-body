@@ -126,6 +126,9 @@
         $('label.error').each(function() {
           $(this).remove();
         });
+        $('.age-radio').each(function() {
+          $(this).removeClass('error');
+        });
         return false;
       }
       $(".carousel-control-prev").show();
@@ -186,9 +189,22 @@
         }
       });
       $('.quiz-content-indicators ul.carousel-indicators li').click(function () {
+
+
+        if(!$(".quiz-form").valid()) {
+          $('label.error').each(function() {
+            $(this).remove();
+          });
+          $('.age-radio').each(function() {
+            $(this).removeClass('error');
+          });
+          return false;
+        }
+
         $(this).addClass('active-show');
         $(this).prevAll().addClass('active-show');
         $(this).nextAll().removeClass('active-show');
+        
       });
       $('.quiz-arrows>a.carousel-control-prev').click(function () {
         $('.quiz-content-indicators ul.carousel-indicators li.active-show.active').removeClass('active-show');

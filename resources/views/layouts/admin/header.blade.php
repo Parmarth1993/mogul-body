@@ -187,8 +187,8 @@
                                                 </button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                        <div class="header-top-menu tabl-d-n">
+                                   <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <!-- <div class="header-top-menu tabl-d-n">
                                             <ul class="nav navbar-nav mai-top-nav">
                                                 <li class="nav-item"><a href="{{ route('adminDashboard') }}" class="nav-link">Home</a>
                                                 </li>
@@ -199,14 +199,14 @@
                                                 <li class="nav-item"><a href="#" class="nav-link">Support</a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                                <li class="nav-item dropdown">
+                                                <!-- <li class="nav-item dropdown">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
-                                                    <!-- <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
+                                                    <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
                                                         <div class="message-single-top">
                                                             <h1>Message</h1>
                                                         </div>
@@ -263,10 +263,10 @@
                                                         <div class="message-view">
                                                             <a href="#">View All Messages</a>
                                                         </div>
-                                                    </div> -->
-                                                </li>
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                    <!-- <div role="menu" class="notification-author dropdown-menu animated zoomIn">
+                                                    </div>
+                                                </li> -->
+                                                <!-- <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                                     <div role="menu" class="notification-author dropdown-menu animated zoomIn">
                                                         <div class="notification-single-top">
                                                             <h1>Notifications</h1>
                                                         </div>
@@ -323,8 +323,8 @@
                                                         <div class="notification-view">
                                                             <a href="#">View All Notification</a>
                                                         </div>
-                                                    </div> -->
-                                                </li>
+                                                    </div>
+                                                </li> -->
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                             <i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
@@ -334,12 +334,12 @@
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <!-- <li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Register</a>
                                                         </li> -->
-                                                        <li><a href="#"><span class="fa fa-user author-log-ic"></span>My Profile</a>
+                                                        <li><a href="{{ route('profile') }}"><span class="fa fa-user author-log-ic"></span>My Profile</a>
                                                         </li>
                                                         <!-- <li><a href="lock.html"><span class="fa fa-diamond author-log-ic"></span> Lock</a>
                                                         </li> -->
-                                                        <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
-                                                        </li>
+                                                       <!--  <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
+                                                        </li> -->
                                                         <li>
                                                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
