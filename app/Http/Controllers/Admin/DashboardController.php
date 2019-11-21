@@ -16,7 +16,7 @@ class DashboardController extends Controller
     	$title = 'Quiz List';
     	$quizList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
-                ->select('quizzes.*','users.*')
+                ->select('quizzes.*','users.*', 'quizzes.id as quiz_id')
                 ->Where('quizzes.type', 'patient')
             ->get();
     	return view('admin/dashboard', compact('quizList', 'title'));
@@ -26,7 +26,7 @@ class DashboardController extends Controller
     	$title = 'Patients';
     	$patientList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
-                ->select('quizzes.*','users.*')
+                ->select('quizzes.*','users.*', 'quizzes.id as quiz_id')
                 ->Where('quizzes.type', 'patient')
             ->get();
     	return view('admin/patients', compact('patientList', 'title'));
@@ -36,7 +36,7 @@ class DashboardController extends Controller
     	$title = 'Physicians';
     	$patientList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
-                ->select('quizzes.*','users.*')
+                ->select('quizzes.*','users.*', 'quizzes.id as quiz_id')
                 ->Where('quizzes.type', 'physician')
             ->get();
     	return view('admin/physicians', compact('patientList', 'title'));
@@ -47,6 +47,24 @@ class DashboardController extends Controller
          $user = Auth::user();
          return view('admin/profile', compact('user','title'));
 
+    }
+
+    public function getUsers() {
+    	$title = 'Users';
+    	$users = User::all();
+    	return view('admin/users', compact('users','title'));
+    }
+
+    public function deleteUser($id) {
+    	$user = User::where('id', $id)->first();
+    	$user->delete();
+    	return redirect('/admin/users')->with('success', 'User has been deleted.');
+    }
+
+    public function deleteQuiz($id) {
+    	$quiz = Quiz::where('id', $id)->first();
+    	$quiz->delete();
+    	return redirect('/admin/dashboard')->with('success', 'Quiz has been deleted.');
     }
 
     public function updateprofile(Request $request){
@@ -84,7 +102,7 @@ class DashboardController extends Controller
 
     public function updatepassword(Request $request){
         
-         $this->validate($request, [
+        $this->validate($request, [
             'new_password' => 'required|max:255',
             'confirm_password' => 'required|max:255',
         ]);
@@ -100,6 +118,16 @@ class DashboardController extends Controller
 
             return redirect('/admin/profile')->with('error', 'Password and confirm password do not match.');
         }
+    }
+
+    public function viewQuiz($id) {
+    	$title = 'View Quiz';
+    	$quiz = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
+                ->orderBy('quizzes.created_at')
+                ->select('quizzes.*','users.*')
+                ->Where('quizzes.id', $id)
+            ->get()->first();
+    	return view('admin/quiz-view', compact('quiz','title'));
     }
 
 }

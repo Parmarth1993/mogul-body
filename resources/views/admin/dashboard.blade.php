@@ -32,8 +32,8 @@
                                 <td>{{ $patient->active }}</td>
                                 <td>{{ $patient->body_type }}</td>
                                 <td>
-                                    <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                    <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="{{ route('viewQuiz', $patient->quiz_id) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                    <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><a onclick="return confirm('Are you sure ?');" href="{{ route('deleteQuiz', $patient->quiz_id) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
                                 </td>
                             </tr>
                         @endforeach

@@ -35,4 +35,10 @@ Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
 	Route::get('/profile', 'Admin\DashboardController@profile')->name('profile');
 	Route::post('/update-profile', 'Admin\DashboardController@updateprofile')->name('updateprofile');
 	Route::post('/update-password', 'Admin\DashboardController@updatepassword')->name('updatepassword');
+
+	Route::get('/quiz/view/{id}', 'Admin\DashboardController@viewQuiz')->name('viewQuiz');
+	Route::get('/users', 'Admin\DashboardController@getUsers')->name('getUsers');
+	Route::get('/user/delete/{id}', 'Admin\DashboardController@deleteUser')->name('deleteUser');
+	Route::get('/quiz/delete/{id}', 'Admin\DashboardController@deleteQuiz')->name('deleteQuiz');
+	
 });

@@ -96,6 +96,12 @@
                                 <li><a title="Google Map" href="{{ route('getPhysicians') }}"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="has-arrow" href="{{ route('getUsers') }}" aria-expanded="false"><i class="fa big-icon fa-user icon-wrap"></i> <span class="mini-click-non">Users</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Google Map" href="{{ route('getUsers') }}"><i class="fa fa-user sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                            </ul>
+                        </li>
                         <!-- <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -530,6 +536,11 @@
                 </div>
             </div>
         </div>
+    @if (session('success'))
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('success') }}
+    </div>
+    @endif
     @yield('content')
     <!-- jquery
         ============================================ -->
