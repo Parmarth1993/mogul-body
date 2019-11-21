@@ -13,7 +13,7 @@
     <b>Below are the details for the quiz:</b> <br />
     @if($type == 'patient')
     	Gender : <b>{{ $gender }}</b><br />
-    	Age : {<b>{ $teens }}</b><br />
+    	Age : <b>{{ $teens }}</b><br />
     	Diagnosis : <b>{{ $diagnosis }}</b><br />
     	Diagnosis Conditions : <b>{{ $diagonsis_condition }}</b><br />
     	How active are you? : <b>{{ $active }}</b><br />
