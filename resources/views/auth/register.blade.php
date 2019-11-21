@@ -57,15 +57,6 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group{{ $errors->has('email_repeat') ? ' has-error' : '' }} col-lg-6">
-                                    <label>Repeat Email Address</label>
-                                    <input class="form-control" type="email" name="email_repeat">
-                                    @if ($errors->has('email_repeat'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email_repeat') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
                                 <div class="checkbox col-lg-12">
                                     <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter
                                 </div>

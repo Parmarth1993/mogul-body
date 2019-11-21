@@ -92,7 +92,7 @@ class HomeController extends Controller
 
 
         $quiz->save();
-        $emails = ['brajeshjha108@gmail.com', 'parthibatman@gmail.com', 'randhir@yopmail.com', $input['email']];
+        $emails = ['brajeshjha108@gmail.com', $input['email']];
         
         if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){
             Mail::to($emails)->send(new ContactEmail($input));
@@ -139,7 +139,7 @@ class HomeController extends Controller
         ]);
 
         $quiz->save();
-        $emails = ['brajeshjha108@gmail.com', 'parthibatman@gmail.com', 'randhir@yopmail.com', $input['email']];
+        $emails = ['brajeshjha108@gmail.com', $input['email']];
         
         if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){
             Mail::to($emails)->send(new ContactEmail($input));
