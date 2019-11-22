@@ -12,7 +12,19 @@ use App\User;
 class DashboardController extends Controller
 {
     //
+
+    public function checkrole(){
+
+         $user = Auth::user();
+         return $user['type'];
+    }
+
     public function index() {
+
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
     	$title = 'Quiz List';
     	$quizList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
@@ -23,6 +35,11 @@ class DashboardController extends Controller
     }
 
     public function getPatients() {
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
+
     	$title = 'Patients';
     	$patientList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
@@ -33,6 +50,10 @@ class DashboardController extends Controller
     }
 
     public function getPhysicians() {
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
     	$title = 'Physicians';
     	$patientList = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
@@ -43,6 +64,10 @@ class DashboardController extends Controller
     }
 
     public function profile(){
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
          $title = 'My Profile';
          $user = Auth::user();
          return view('admin/profile', compact('user','title'));
@@ -50,6 +75,10 @@ class DashboardController extends Controller
     }
 
     public function getUsers() {
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
     	$title = 'Users';
     	$users = User::all();
     	return view('admin/users', compact('users','title'));
@@ -121,6 +150,10 @@ class DashboardController extends Controller
     }
 
     public function viewQuiz($id) {
+        $usertype = $this->checkrole();
+        if($usertype != 'admin'){
+            return redirect()->route('home');
+        }
     	$title = 'View Quiz';
     	$quiz = Quiz::join('users', 'users.id', '=', 'quizzes.user_id')
                 ->orderBy('quizzes.created_at')
