@@ -9,6 +9,7 @@ use App\Mail\AdminEmail;
 use App\Quiz;
 use App\User;
 use Stripe;
+require_once(base_path() . '/vendor/stripe/stripe-php/init.php');
 
 class HomeController extends Controller
 {
