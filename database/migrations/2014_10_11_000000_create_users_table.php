@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('type', ['patient', 'physician', 'admin']);
+            $table->text('stripe_payment_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

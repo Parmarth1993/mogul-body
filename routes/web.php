@@ -24,7 +24,8 @@ Route::get('/signup/physician', 'HomeController@physicianSignup')->name('physici
 Route::post('/signup/patient', 'HomeController@patientSignupQuiz')->name('patientSignupQuiz');
 Route::post('/signup/physician', 'HomeController@physicianSignupQuiz')->name('physicianSignupQuiz');
 
-Route::get('/thank-you', 'HomeController@quizResults')->name('Quiz');
+Route::get('/thank-you/{id}', 'HomeController@quizResults')->name('Quiz');
+Route::post('/payment', 'HomeController@stripePayment')->name('stripePayment');
 
 Auth::routes();
 //admin routes

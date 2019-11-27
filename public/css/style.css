@@ -2040,3 +2040,7 @@ input.error, select.form-control.error {
 #errorMessage {
   display: none;
 }
+
+.form-group.hide {
+  display: none;
+}
