@@ -278,7 +278,7 @@
                      </div>
                      <div class="form-grouph">
                         <label>CVC</label>
-                        <input name="card_security" class="input-design card-cvc" type="text" name="" placeholder="----" required>
+                        <input name="card_security" class="input-design card-cvc" type="text" name="" placeholder="123" required>
                      </div>
                      <div class="form-grouph">
                         <input type="hidden" name="user_id" value="{{  $quiz_details->user_id }}" />
