@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Quiz;
 use App\User;
+use Stripe;
+require_once(base_path() . '/vendor/stripe/stripe-php/init.php');
 
 class DashboardController extends Controller
 {
@@ -161,6 +163,17 @@ class DashboardController extends Controller
                 ->Where('quizzes.id', $id)
             ->get()->first();
     	return view('admin/quiz-view', compact('quiz','title'));
+    }
+
+    public function getPlans(){
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $plans = \Stripe\Plan::all();
+        $title = 'View Plans';
+        return view('admin/subscription-plans', compact('title','plans'));
+    }
+
+    public function createPlan(){
+
     }
 
 }

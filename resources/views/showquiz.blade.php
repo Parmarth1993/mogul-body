@@ -283,6 +283,7 @@
                      <div class="form-grouph">
                         <input type="hidden" name="user_id" value="{{  $quiz_details->user_id }}" />
                         <input type="hidden" name="quiz_id" value="{{  $quiz_details->quiz_id }}" />
+                        <input type="hidden" class="plan_type" name="plan_type" value="yearly" />
                         <input id="stripe_price" type="hidden" name="stripe_price" value="300" />
                         <input class="input-submit-design btn-design" type="submit" name="" value="Get Started Today" >
                      </div>
@@ -361,9 +362,11 @@ $('#price').change(function(){
     if($('.mogul_body-pricing-sec input:checked').val() === 'monthly') {
       $('#stripe_price').val(25);
       $('#priceHead').html('$25/mo');
+      $('.plan_type').val('monthly');
     } else {
       $('#stripe_price').val(300);
       $('#priceHead').html('$300/yr');
+      $('.plan_type').val('yearly');
     }
 });
 </script>

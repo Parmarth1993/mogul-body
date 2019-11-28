@@ -41,5 +41,7 @@ Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
 	Route::get('/users', 'Admin\DashboardController@getUsers')->name('getUsers');
 	Route::get('/user/delete/{id}', 'Admin\DashboardController@deleteUser')->name('deleteUser');
 	Route::get('/quiz/delete/{id}', 'Admin\DashboardController@deleteQuiz')->name('deleteQuiz');
+	Route::get('/plans', 'Admin\DashboardController@getPlans')->name('getPlans');
+	Route::get('/plans/create', 'Admin\DashboardController@createPlan')->name('getcreatePlan');
 	
 });

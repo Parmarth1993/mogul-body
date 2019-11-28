@@ -187,7 +187,7 @@ class HomeController extends Controller
 
     public function stripePayment(Request $request) {
 
-        $input = $request->only('first_name','last_name','email','card_numder', 'expiry_month', 'expiry_year', 'card_security', 'stripe_token', 'user_id', 'quiz_id', 'password', 'stripe_price');
+        $input = $request->only('first_name','last_name','email','card_numder', 'expiry_month', 'expiry_year', 'card_security', 'stripe_token', 'user_id', 'quiz_id', 'password', 'stripe_price','plan_type');
         $quiz = Quiz::Where('id', $input['quiz_id'])->get()->first();
         $input['gender'] = $quiz['gender'];
         $input['teens'] = $quiz['teens'];
@@ -204,19 +204,48 @@ class HomeController extends Controller
         $input['type'] = $quiz['type'];
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        try {            
-            $charge = Stripe\Charge::create ([
-                    "amount" => $input['stripe_price'] * 100,
-                    "currency" => "usd",
-                    "source" => $input['stripe_token'],
-                    "description" => "Payment from Mogul Body by users:" . $input['email']
+        
+        try {  
+
+            $customer = \Stripe\Customer::create([
+              'description' => 'Customer '.$input['email'],
+              'email' => $input['email'],
+              'name' =>  $input['first_name'],
             ]);
 
-            if($charge && $charge->id) {
+           $card =  \Stripe\Customer::createSource(
+              $customer->id,
+              ['source' => $input['stripe_token']]
+            );
+
+
+            $plans = \Stripe\Plan::all();
+
+            foreach ($plans as $key => $value) {
+                $planname = strtolower($value->nickname);
+                if($planname == $input['plan_type']){
+                    $plan_id = $value->id;
+                }
+            }
+
+
+            $subscriptions = \Stripe\Subscription::create([
+              'customer' => $customer->id,
+              'items' => [['plan' => $plan_id]],
+            ]);
+
+            // $charge = Stripe\Charge::create ([
+            //         "amount" => $input['stripe_price'] * 100,
+            //         "currency" => "usd",
+            //         "source" => $input['stripe_token'],
+            //         "description" => "Payment from Mogul Body by users:" . $input['email']
+            // ]);
+
+            if($subscriptions && $subscriptions->id) {
                 //update password
                 $user = User::Where('id', $input['user_id'])->get()->first();
                 $user->password = bcrypt($input['password']);
-                $user->stripe_payment_id = $charge->id;
+                $user->stripe_payment_id = $subscriptions->id;
                 $user->save();
 
                 if(!in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'localhost'))){

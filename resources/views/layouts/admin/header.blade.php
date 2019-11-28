@@ -102,6 +102,13 @@
                                 <li><a title="Google Map" href="{{ route('getUsers') }}"><i class="fa fa-user sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="has-arrow" href="{{ route('getPlans') }}" aria-expanded="false"><i class="fa big-icon fa-user icon-wrap"></i> <span class="mini-click-non">Subscription Plans</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Google Map" href="{{ route('getPlans') }}"><i class="fa fa-user sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">LIst</span></a></li>
+                                <li><a title="Google Map" href="{{ route('getcreatePlan') }}"><i class="fa fa-user sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Create Plan</span></a></li>
+                            </ul>
+                        </li>
                         <!-- <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
