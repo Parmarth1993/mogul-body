@@ -362,11 +362,11 @@ $('#price').change(function(){
     if($('.mogul_body-pricing-sec input:checked').val() === 'monthly') {
       $('#stripe_price').val(25);
       $('#priceHead').html('$25/mo');
-      $('.plan_type').val('monthly');
+      $('.plan_type').val('Monthly');
     } else {
       $('#stripe_price').val(300);
       $('#priceHead').html('$300/yr');
-      $('.plan_type').val('yearly');
+      $('.plan_type').val('Annual');
     }
 });
 </script>

@@ -41,7 +41,11 @@ Route::group(array('prefix'=> 'admin', 'middleware' => ['auth']), function () {
 	Route::get('/users', 'Admin\DashboardController@getUsers')->name('getUsers');
 	Route::get('/user/delete/{id}', 'Admin\DashboardController@deleteUser')->name('deleteUser');
 	Route::get('/quiz/delete/{id}', 'Admin\DashboardController@deleteQuiz')->name('deleteQuiz');
-	Route::get('/plans', 'Admin\DashboardController@getPlans')->name('getPlans');
-	Route::get('/plans/create', 'Admin\DashboardController@createPlan')->name('getcreatePlan');
+	Route::get('/plans', 'Admin\DashboardController@pricingPlans')->name('pricingPlans');
+	Route::get('/plans/create', 'Admin\DashboardController@createPlan')->name('createPlan');
+	Route::post('/plans/create', 'Admin\DashboardController@createPlan')->name('createPlan');
+	Route::get('/plans/edit/{id}', 'Admin\DashboardController@editPlan')->name('editPlan');
+	Route::post('/plans/edit/{id}', 'Admin\DashboardController@editPlan')->name('editPlan');
+	Route::get('/plans/delete/{id}', 'Admin\DashboardController@deletePlan')->name('deletePlan');
 	
 });

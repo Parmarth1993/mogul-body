@@ -165,15 +165,94 @@ class DashboardController extends Controller
     	return view('admin/quiz-view', compact('quiz','title'));
     }
 
-    public function getPlans(){
+    public function pricingPlans(){
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $plans = \Stripe\Plan::all();
         $title = 'View Plans';
         return view('admin/subscription-plans', compact('title','plans'));
     }
 
-    public function createPlan(){
+    public function createPlan(Request $request){
+        $title = 'Add New Plan';
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        if ($request->isMethod('post')) {
+            $input = $request->only('interval','product', 'currency', 'nickname', 'price');
 
+            try {
+                $plan = \Stripe\Plan::create([
+                'amount' => $input['price'] * 100,
+                'nickname' => $input['nickname'],
+                'currency' => $input['currency'],
+                'interval' => $input['interval'],
+                'product' => $input['product'],
+                ]);
+                if($plan && $plan->id) {
+                    return redirect('/admin/plans')->with('success', 'Plan has been created successfully.');
+                }
+            } catch(\Stripe\Exception\CardException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\RateLimitException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\InvalidRequestException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\AuthenticationException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\ApiConnectionException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\ApiErrorException $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            } catch (Exception $e) {
+                return redirect('/admin/plans/create')->with('error', $e->getError()->message);
+            }
+        }
+        
+        $products = \Stripe\Product::all(['limit' => 3]);
+        return view('admin/subscription-plan-new', compact('title', 'products'));
+    }
+
+    public function editPlan(Request $request, $id){
+        $title = 'Edit Plan';
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        if ($request->isMethod('post')) {
+            $input = $request->only('interval','product', 'currency', 'nickname', 'price');
+
+            try {
+                $plan = \Stripe\Plan::update($id, [
+                'nickname' => $input['nickname']
+                ]);
+                if($plan && $plan->id) {
+                    return redirect('/admin/plans')->with('success', 'Plan has been updated successfully.');
+                }
+            } catch(\Stripe\Exception\CardException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\RateLimitException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\InvalidRequestException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\AuthenticationException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\ApiConnectionException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (\Stripe\Exception\ApiErrorException $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            } catch (Exception $e) {
+                return redirect('/admin/plans/edit/' . $id)->with('error', $e->getError()->message);
+            }
+        }
+        
+        $plan = \Stripe\Plan::retrieve($id);
+        $products = \Stripe\Product::all(['limit' => 3]);
+        $plan->amount = $plan->amount / 100;
+        return view('admin/subscription-plan-edit', compact('title', 'plan', 'products'));
+    }
+
+    public function deletePlan($id) {
+        
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $plan = \Stripe\Plan::update($id, [
+                'active' => false
+                ]);
+        return redirect('/admin/plans')->with('success', 'Plan has been deleted successfully.');
     }
 
 }

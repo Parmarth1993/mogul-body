@@ -259,12 +259,10 @@ class HomeController extends Controller
             }
 
         } catch(\Stripe\Exception\CardException $e) {
-            die('from header_remove() 2');
             redirect('/thank-you/'.$input['quiz_id'].'#btn-design')->with('error', $e->getError()->message);
 
         } catch (\Stripe\Exception\RateLimitException $e) {
-            die('from header_remove()');
-          // Too many requests made to the API too quickly
+            // Too many requests made to the API too quickly
             redirect('/thank-you/'.$input['quiz_id'].'#btn-design')->with('error', $e->getError()->message);
         } catch (\Stripe\Exception\InvalidRequestException $e) {
           // Invalid parameters were supplied to Stripe's API
